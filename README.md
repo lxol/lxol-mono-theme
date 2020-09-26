@@ -3,9 +3,9 @@ Lxol mono themes
 
 A collection of lxol monochrome emacs themes in a couple of variants.
 
-![lxol-mono-white](https://raw.githubusercontent.com/lxol/lxol-mono-themes/master/readme-files/lxol-mono-white.png)
+![lxol-mono-white](https://github.com/lxol/lxol-mono-theme/blob/master/readme-files/lxol-mono-white.png)
 
-![lxol-mono-black](https://raw.githubusercontent.com/lxol/lxol-mono-themes/master/readme-files/lxol-mono-black.png)
+![lxol-mono-black](https://github.com/lxol/lxol-mono-theme/blob/master/readme-files/lxol-mono-black.png)
 
 Installation
 ============
