@@ -1,10 +1,10 @@
-;;; almost-mono-themes.el --- Almost monochromatic color themes -*- lexical-binding: t; -*-
+;;; lxol-mono-themes.el --- Lxol monochromatic color themes -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019, 2020 John Olsson
 
 ;; Author: John Olsson <john@cryon.se>
 ;; Maintainer: John Olsson <john@cryon.se>
-;; URL: https://github.com/cryon/almost-mono-themes
+;; URL: https://github.com/cryon/lxol-mono-themes
 ;; Created: 9th May 2019
 ;; Version: 1.0.0
 ;; Keywords: faces
@@ -25,11 +25,11 @@
 
 ;;; Commentary:
 
-;; A suite of almost monochrome Emacs themes
+;; A suite of lxol monochrome Emacs themes
 
 ;;; Code:
 
-(defconst almost-mono-themes-colors
+(defconst lxol-mono-themes-colors
   '((white . ((background . "#ffffff")
 	      (foreground . "#000000")
 	      (weak	  . "#888888")
@@ -70,9 +70,9 @@
 	      (success	  . "#00ff00")
 	      (string     . "#3c5e2b")))))
 
-(defmacro almost-mono-themes--variant-with-colors (variant &rest body)
+(defmacro lxol-mono-themes--variant-with-colors (variant &rest body)
   "Execute BODY in a scope where the different colors for given VARIANT is bound."
-  `(let* ((colors (or (cdr (assoc ,variant almost-mono-themes-colors))
+  `(let* ((colors (or (cdr (assoc ,variant lxol-mono-themes-colors))
 		      (error "No such theme variant")))
 	  (background (cdr (assoc 'background colors)))
 	  (foreground (cdr (assoc 'foreground colors)))
@@ -85,7 +85,7 @@
 	  (string     (cdr (assoc 'string colors))))
      ,@body))
 
-(defmacro almost-mono-themes--faces-spec ()
+(defmacro lxol-mono-themes--faces-spec ()
   "Provide the faces specification."
   (quote
    (mapcar
@@ -173,21 +173,21 @@
       ))))
 
 
-(defun almost-mono-themes--variant-name (variant)
+(defun lxol-mono-themes--variant-name (variant)
   "Create symbol for color theme variant VARIANT."
-  (intern (format "almost-mono-%s" (symbol-name variant))))
+  (intern (format "lxol-mono-%s" (symbol-name variant))))
 
-(defmacro almost-mono-themes--define-theme (variant)
-  "Define a theme for the almost-mono variant VARIANT."
-  (let ((name (almost-mono-themes--variant-name variant))
-        (doc (format "almost mono theme (%s version)" variant)))
+(defmacro lxol-mono-themes--define-theme (variant)
+  "Define a theme for the lxol-mono variant VARIANT."
+  (let ((name (lxol-mono-themes--variant-name variant))
+        (doc (format "lxol mono theme (%s version)" variant)))
     `(progn
        (deftheme ,name ,doc)
        (put ',name 'theme-immediate t)
-       (almost-mono-themes--variant-with-colors
+       (lxol-mono-themes--variant-with-colors
         ',variant
         (apply 'custom-theme-set-faces ',name
-               (almost-mono-themes--faces-spec)))
+               (lxol-mono-themes--faces-spec)))
        (provide-theme ',name))))
 
 ;;;###autoload
@@ -195,6 +195,6 @@
   (add-to-list 'custom-theme-load-path
 	       (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide 'almost-mono-themes)
+(provide 'lxol-mono-themes)
 
-;;; almost-mono-themes.el ends here
+;;; lxol-mono-themes.el ends here
