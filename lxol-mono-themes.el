@@ -51,7 +51,7 @@
 	      (string     . "#a7bca4")))
 
     (gray .  ((background . "#2b2b2b")
-	      (foreground . "#ffffff")
+	      (foreground . "#a9b7c6")
 	      (weak	  . "#aaaaaa")
 	      (weaker	  . "#666666")
 	      (weakest	  . "#222222")
